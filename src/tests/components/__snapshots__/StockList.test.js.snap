@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render StockList with empty message 1`] = `
+<Fragment>
+  <h2>
+    Companies
+  </h2>
+  <div
+    className="list-body"
+  >
+    <div>
+      <span>
+        There are no companies yet.
+      </span>
+      <Link
+        replace={false}
+        to="/add"
+      >
+        <span>
+          Track your first company.
+        </span>
+      </Link>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`should render StockList with expenses 1`] = `
+<Fragment>
+  <h2>
+    Companies
+  </h2>
+  <div
+    className="list-body"
+  >
+    <ul
+      className="list-body"
+    >
+      <li
+        className="list-item"
+        key="0"
+      >
+        Apple
+      </li>
+      <li
+        className="list-item"
+        key="1"
+      >
+        Google
+      </li>
+    </ul>
+  </div>
+</Fragment>
+`;
