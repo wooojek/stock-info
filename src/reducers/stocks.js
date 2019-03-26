@@ -1,11 +1,4 @@
-const defaultStockState = [
-  {
-    name: 'Apple',
-  },
-  {
-    name: 'Google',
-  },
-];
+const defaultStockState = [];
 
 export default (state = defaultStockState, action) => {
   switch (action.type) {
@@ -14,6 +7,8 @@ export default (state = defaultStockState, action) => {
         action.stock,
         ...state,
       ];
+    case 'SET_STOCKS':
+      return action.stocks;
     default:
       return state;
   }

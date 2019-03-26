@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../actions/auth';
+import { startLogout } from '../actions/auth';
 
-export const Header = ({ logout }) => (
+export const Header = ({ startLogout }) => (
   <header className="header">
     <div className="content-container">
       <div className="header__content">
@@ -13,7 +13,7 @@ export const Header = ({ logout }) => (
         <Link className="header__element--link" to="/add">
           <h3>Add new company</h3>
         </Link>
-        <button className="button button--link header__logout" onClick={logout}>Logout</button>
+        <button className="button button--link header__logout" onClick={startLogout}>Logout</button>
       </div>
 
     </div>
@@ -21,7 +21,7 @@ export const Header = ({ logout }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
+  startLogout: () => dispatch(startLogout()),
 });
 
 export default connect(undefined, mapDispatchToProps)(Header);

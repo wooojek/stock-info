@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import { login, logout } from './actions/auth';
+import { startSetStocks } from './actions/stocks';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import 'react-dates/lib/css/_datepicker.css';
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 const jsx = (
@@ -21,5 +23,27 @@ const renderApp = () => {
   }
 };
 
-renderApp();
-history.push('/');
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
+auth().then((user) => {
+  if (user) {
+    store.dispatch(login(user.uid));
+    store.dispatch(startSetStocks()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/dashboard');
+      }
+    });
+  } else {
+    store.dispatch(logout());
+    renderApp();
+    history.push('/');
+  }
+});
+
+function auth() {
+  return new Promise((resolve) => {
+    const uid = localStorage.getItem('uid');
+    resolve({ uid });
+  });
+}
