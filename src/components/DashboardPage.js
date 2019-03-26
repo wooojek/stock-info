@@ -1,8 +1,9 @@
 import React from 'react';
+import StockList from './StockList';
 
 export const DashboardPage = () => (
-  <div>
-    Dashboard page content
+  <div className='content-container'>
+    <StockList />
   </div>
 );
 
