@@ -37,6 +37,12 @@ Add additional notes about how to deploy this on a live system -->
 
 ## Built With 
 
+* React
+* Redux
+* Jest
+* Babel
+* Webpack
+
 ## Authors
 
 * **Me** - *Initial work* - [Wooojek](https://github.com/wooojek)
