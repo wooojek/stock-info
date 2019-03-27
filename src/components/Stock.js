@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 
 const { ALPHAVANTAGE_API_KEY } = process.env;
 
@@ -101,8 +102,10 @@ export class Stock extends React.Component {
             ) : (<div></div>)}
             {details ? (
               <div className="stock-info__details">
-                <span className="bold">{details.price}</span>
-                <span>{details.change} ({details.changePercent})</span>
+                <span className="bold">{numeral(details.price).format('$0,0.00')}</span>
+                <span className={details.change >= 0 ? 'stock--up': 'stock--down'}>
+                  {numeral(details.change).format('0.00')} ({numeral(details.changePercent.slice(0, -2)).format('0.00')}%)
+                </span>
                 <span>{details.closed}</span>
               </div>
             ) : (<div></div>)}
