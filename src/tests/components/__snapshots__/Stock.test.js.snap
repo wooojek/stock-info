@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Stock correctly 1`] = `
+<div
+  className="list-item"
+>
+  <div
+    className="stock-container"
+  >
+    <div
+      className="stock-img"
+      style={
+        Object {
+          "backgroundImage": "url(https://via.placeholder.com/64)",
+        }
+      }
+    />
+    <div
+      className="stock-info"
+    >
+      <div
+        className="stock-info__names"
+      >
+        <span
+          className="bold"
+        />
+        <span />
+      </div>
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render Stock correctly with data 1`] = `
+<div
+  className="list-item"
+>
+  <div
+    className="stock-container"
+  >
+    <div
+      className="stock-img"
+      style={
+        Object {
+          "backgroundImage": "url(https://via.placeholder.com/64)",
+        }
+      }
+    />
+    <div
+      className="stock-info"
+    >
+      <div
+        className="stock-info__names"
+      >
+        <span
+          className="bold"
+        >
+          Apple
+        </span>
+        <span>
+          AAPL
+        </span>
+      </div>
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;

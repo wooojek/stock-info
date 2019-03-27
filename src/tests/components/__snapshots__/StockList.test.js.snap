@@ -33,22 +33,20 @@ exports[`should render StockList with stocks 1`] = `
   <div
     className="content-container"
   >
-    <ul
+    <div
       className="list-body"
     >
-      <li
-        className="list-item"
+      <Stock
         key="0"
-      >
-        Apple
-      </li>
-      <li
-        className="list-item"
+        name="Apple"
+        symbol="AAPL"
+      />
+      <Stock
         key="1"
-      >
-        Google
-      </li>
-    </ul>
+        name="Google"
+        symbol="GOOG"
+      />
+    </div>
   </div>
 </Fragment>
 `;

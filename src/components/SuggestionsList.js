@@ -2,23 +2,27 @@ import React from 'react';
 
 export const SuggestionsList = ({ suggestions, onSelect }) => {
 
-  const onClick = (sugestion) => {
+  const onClick = (suggestion) => {
     onSelect({
-      symbol: sugestion['1. symbol'],
-      name: sugestion['2. name'],
+      symbol: suggestion['1. symbol'],
+      name: suggestion['2. name'],
+      region: suggestion['4. region'],
+      marketOpen: suggestion['5. marketOpen'],
+      marketClose: suggestion['6. marketClose'],
+      timezone: suggestion['7. timezone'],
     });
   }
 
   return (
     <div className="suggestions-container">
       <ul className='list-body suggestions-cover'>
-        {suggestions.map((sugestion, index) => (
+        {suggestions.map((suggestion, index) => (
           <li
             key={index}
             className='list-item'
-            onClick={() => onClick(sugestion)}
+            onClick={() => onClick(suggestion)}
           >
-            {sugestion['1. symbol']} - {sugestion['2. name']}
+            {suggestion['1. symbol']} - {suggestion['2. name']}
           </li>
         ))}
       </ul>

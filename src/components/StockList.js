@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Stock from './Stock';
 
 export const StockList = ({ stocks }) => (
   <Fragment>
@@ -8,9 +9,9 @@ export const StockList = ({ stocks }) => (
     <div className="content-container">
       {stocks.length > 0 ?
         (
-          <ul className="list-body">
-            {stocks.map((stock, index) => <li className="list-item" key={index}>{stock.name}</li>)}
-          </ul>
+          <div className="list-body">
+            {stocks.map((stock, index) => <Stock key={index} {...stock} />)}
+          </div>
         ) : (
           <div>
             <span>There are no companies yet.</span>

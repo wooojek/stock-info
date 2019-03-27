@@ -26,19 +26,30 @@ export default class StockForm extends React.Component {
     });
   }
 
-  onNameSelect = ({ name, symbol }) => {
+  onNameSelect = ({ name, symbol, ...market }) => {
     const suggestions = [];
-    this.setState(() => ({ name, suggestions, symbol }));
+    this.setState(() => ({ name, suggestions, symbol, market }));
   }
 
   getSuggestions = () => {
     fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.name}&apikey=${ALPHAVANTAGE_API_KEY}`)
-      .then((response) => response.json())
-      .then(({ bestMatches }) => {
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data['Note']) {
+          throw Error(data['Note']);
+        }
+        const { bestMatches } = data;
+        
         this.setState(() => ({
           suggestions: bestMatches.slice(0, 4),
         }));
-      });
+      })
+      .catch((e) => console.log(e));
   }
 
   onSubmit = (e) => {
@@ -51,6 +62,7 @@ export default class StockForm extends React.Component {
       this.props.onSubmit({
         name: this.state.name,
         symbol: this.state.symbol,
+        market: this.state.market,
       });
     }
   }

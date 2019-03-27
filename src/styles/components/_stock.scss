@@ -1,0 +1,28 @@
+.stock-container {
+  align-items: center;
+  display: flex;
+}
+
+.stock-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 3px solid $off-white;
+  border-radius: 15px;
+  height: 64px;
+  width: 64px;
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: $s-size;
+
+  &__names, &__market, &__details {
+    display: flex;
+  }
+
+  span {
+    padding-left: $s-size;
+  }
+}
