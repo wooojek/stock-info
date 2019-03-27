@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 export const StockList = ({ stocks }) => (
   <Fragment>
     <h2>Companies</h2>
-    <div className="list-body">
+    <div className="content-container">
       {stocks.length > 0 ?
         (
           <ul className="list-body">

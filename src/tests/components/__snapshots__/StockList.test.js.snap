@@ -6,7 +6,7 @@ exports[`should render StockList with empty message 1`] = `
     Companies
   </h2>
   <div
-    className="list-body"
+    className="content-container"
   >
     <div>
       <span>
@@ -31,7 +31,7 @@ exports[`should render StockList with expenses 1`] = `
     Companies
   </h2>
   <div
-    className="list-body"
+    className="content-container"
   >
     <ul
       className="list-body"

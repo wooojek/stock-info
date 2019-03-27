@@ -29,6 +29,10 @@
     background: $off-white;
   }
 
+  &:first-of-type {
+    border-top: 1px solid darken($color: $off-white, $amount: 7%);
+  }
+
   @media (min-width: $desktop-breakpoint) {
     align-items: center;
     flex-direction: row;
