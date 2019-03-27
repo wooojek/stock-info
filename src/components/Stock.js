@@ -106,7 +106,7 @@ export class Stock extends React.Component {
                 <span className={details.change >= 0 ? 'stock--up': 'stock--down'}>
                   {numeral(details.change).format('0.00')} ({numeral(details.changePercent.slice(0, -2)).format('0.00')}%)
                 </span>
-                <span>{details.closed}</span>
+                <span>Closed: {details.closed}</span>
               </div>
             ) : (<div></div>)}
 
