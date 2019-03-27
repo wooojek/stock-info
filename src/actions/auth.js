@@ -20,8 +20,6 @@ export const logout = () => ({
 export const startLogout = () => {
   return (dispatch) => {
     return new Promise((resolve) => {
-      localStorage.removeItem('uid');
-      localStorage.removeItem('stocks');
       dispatch(logout());
       resolve();
     });

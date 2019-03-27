@@ -1,5 +1,3 @@
-import { history } from '../routers/AppRouter';
-
 export default (state = {}, action) => {
   switch (action.type) {
     case 'LOGIN':
