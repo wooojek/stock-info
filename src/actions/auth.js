@@ -7,7 +7,6 @@ export const startLogin = (uid) => {
   return (dispatch) => {
     return new Promise((resolve) => {
       localStorage.setItem('uid', uid);
-      logout();
       dispatch(login(uid));
       resolve();
     });
@@ -22,7 +21,7 @@ export const startLogout = () => {
   return (dispatch) => {
     return new Promise((resolve) => {
       localStorage.removeItem('uid');
-      logout();
+      localStorage.removeItem('stocks');
       dispatch(logout());
       resolve();
     });

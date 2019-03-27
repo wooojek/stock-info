@@ -5,14 +5,24 @@ import stockReducer from '../reducers/stocks';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default () => {
-    const store = createStore(
-        combineReducers({
-            auth: authReducer,
-            stocks: stockReducer,
-        }),
-        composeEnhancers(applyMiddleware(thunk)),
-    );
+const appReducer = combineReducers({
+  auth: authReducer,
+  stocks: stockReducer,
+});
 
-    return store;
+const rootReducer = (state, action) => { // quick solution for clearing state after logout
+  if (action.type === 'LOGOUT') {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+}
+
+export default () => {
+  const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk)),
+  );
+
+  return store;
 }
