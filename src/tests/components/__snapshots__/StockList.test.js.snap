@@ -25,7 +25,7 @@ exports[`should render StockList with empty message 1`] = `
 </Fragment>
 `;
 
-exports[`should render StockList with expenses 1`] = `
+exports[`should render StockList with stocks 1`] = `
 <Fragment>
   <h2>
     Companies
