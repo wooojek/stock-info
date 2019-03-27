@@ -16,9 +16,9 @@ exports[`should render StockList with empty message 1`] = `
         replace={false}
         to="/add"
       >
-        <span>
+        <p>
           Track your first company.
-        </span>
+        </p>
       </Link>
     </div>
   </div>

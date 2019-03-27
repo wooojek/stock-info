@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SuggestionsList correctly 1`] = `
+<div
+  className="suggestions-container"
+>
+  <ul
+    className="list-body suggestions-cover"
+  >
+    <li
+      className="list-item"
+      key="0"
+      onClick={[Function]}
+    >
+      AAPL
+       - 
+      Apple Inc.
+    </li>
+    <li
+      className="list-item"
+      key="1"
+      onClick={[Function]}
+    >
+      AAPL.MEX
+       - 
+      Apple Inc.
+    </li>
+    <li
+      className="list-item"
+      key="2"
+      onClick={[Function]}
+    >
+      AAPL34.SAO
+       - 
+      Apple Inc.
+    </li>
+    <li
+      className="list-item"
+      key="3"
+      onClick={[Function]}
+    >
+      AAPL.ARG
+       - 
+      Apple Inc.
+    </li>
+  </ul>
+</div>
+`;

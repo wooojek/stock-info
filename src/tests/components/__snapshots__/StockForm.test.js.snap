@@ -13,6 +13,10 @@ exports[`should render StockForm correctly 1`] = `
     type="text"
     value=""
   />
+  <SuggestionsList
+    onSelect={[Function]}
+    suggestions={Array []}
+  />
   <div>
     <button
       className="button"
@@ -36,6 +40,10 @@ exports[`should render StockForm correctly with data 1`] = `
     type="text"
     value="Apple"
   />
+  <SuggestionsList
+    onSelect={[Function]}
+    suggestions={Array []}
+  />
   <div>
     <button
       className="button"
@@ -58,6 +66,10 @@ exports[`should render error for invalid form submission 1`] = `
     placeholder="Company symbol"
     type="text"
     value=""
+  />
+  <SuggestionsList
+    onSelect={[Function]}
+    suggestions={Array []}
   />
   <div>
     <button
@@ -86,6 +98,10 @@ exports[`should render error for invalid form submission 2`] = `
     placeholder="Company symbol"
     type="text"
     value=""
+  />
+  <SuggestionsList
+    onSelect={[Function]}
+    suggestions={Array []}
   />
   <div>
     <button

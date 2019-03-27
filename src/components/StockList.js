@@ -15,7 +15,7 @@ export const StockList = ({ stocks }) => (
           <div>
             <span>There are no companies yet.</span>
             <Link to="/add">
-              <span>Track your first company.</span>
+              <p>Track your first company.</p>
             </Link>
           </div>
         )
