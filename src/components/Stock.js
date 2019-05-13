@@ -16,29 +16,26 @@ export class Stock extends React.Component {
     }
   }
 
-  getImage = async () => {
-    return new Promise((resolve) => {
-      const query = this.state.name.split(' ')[0];
-      fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${query}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response.json();
-        })
-        .then(([{ domain, logo }]) => {
-          resolve({
-            domain,
-            logo,
-          });
-        })
-        .catch((e) => console.log(e));
-    });
+  getImage = () => {
+    const query = this.state.name.split(' ')[0];
+    return fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${query}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(([{ domain, logo }]) => {
+        return {
+          domain,
+          logo,
+        };
+      })
+      .catch((e) => console.log(e));
   }
 
-  getStockInfo = async () => {
-    return new Promise((resolve) => {
-      fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${this.state.symbol}&apikey=${ALPHAVANTAGE_API_KEY}`)
+  getStockInfo = () => {
+    return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${this.state.symbol}&apikey=${ALPHAVANTAGE_API_KEY}`)
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);
@@ -50,15 +47,14 @@ export class Stock extends React.Component {
             throw Error(data['Note']);
           }
           const stockData = data['Global Quote'];
-          resolve({
+          return {
             price: stockData['05. price'],
             closed: stockData['07. latest trading day'],
             change: stockData['09. change'],
             changePercent: stockData['10. change percent'],
-          });
+          };
         })
         .catch((e) => console.log(e));
-    });
   }
 
   async componentDidMount() {
@@ -103,7 +99,7 @@ export class Stock extends React.Component {
             {details ? (
               <div className="stock-info__details">
                 <span className="bold">{numeral(details.price).format('$0,0.00')}</span>
-                <span className={details.change >= 0 ? 'stock--up': 'stock--down'}>
+                <span className={details.change >= 0 ? 'stock--up' : 'stock--down'}>
                   {numeral(details.change).format('0.00')} ({numeral(details.changePercent.slice(0, -2)).format('0.00')}%)
                 </span>
                 <span>Closed: {details.closed}</span>
